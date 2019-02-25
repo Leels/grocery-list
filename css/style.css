@@ -4,3 +4,7 @@ p {
 body {
   background-color: pink;
 }
+
+#paris, #hawaii, #india {
+  display: none;
+}
