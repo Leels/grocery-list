@@ -1,19 +1,20 @@
 $(document).ready(function() {
   $("#blanks form").submit(function(event) {
-    var question1Input = parseInt($("input#question1").val());
-    var locationInput = $("input:radio[name=location]:checked").val();
-    var costInput= parseInt($("#cost").val());
-    var roomInput = $("input#room").val();
-    var animalInput = $("input#animal").val();
+    var itemArray = ["item1", "item2", "item3", "item4"];
+    var newArray = [];
 
-    if (question1Input <= 4 || locationInput === "Beach" || costInput === 2 || roomInput === "Hotel" || animalInput === "Yes") {
-      $("#hawaii").show();
-    } else if (question1Input >= 5 || locationInput === "Exotic" || costInput === 3 || roomInput === "Airbnb" || animalInput === "No"){
-      $("#india").show();
-    } else {
-      $("#paris").show();
-    }
 
+    itemArray.forEach(function(lol) {
+      var userItem = $("input#" + lol).val();
+      newArray.push(userItem);
+    });
+
+    newArray.sort();
+    newArray.forEach(function(food) {
+      $(".unstyled").append(`<li> ${food} </li>`);
+    })
+
+    $("#list").show();
 
     event.preventDefault();
   });
